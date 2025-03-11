@@ -1,0 +1,36 @@
+﻿<Window x:Class="BooksList.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BooksList"
+        mc:Ignorable="d"
+        Title="Book List" Height="450" Width="800">
+    <Grid>
+        <Border Background="White" Margin="20" CornerRadius="20" Padding="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            
+            <StackPanel>
+                <Label HorizontalAlignment="Center" Content="Список книг" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
+
+                <Button HorizontalAlignment="Center" Content="Сортировать" Margin="0 20 0 20" Click="SortButton_Click"/>
+                
+                <ListView Name="booksList" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Title}"/>
+                            <GridViewColumn Header="Автор" DisplayMemberBinding="{Binding Author}"/>
+                            <GridViewColumn Header="Год издания" DisplayMemberBinding="{Binding YearOfPublication}"/>
+                            <GridViewColumn Header="Издатель" DisplayMemberBinding="{Binding Publisher}"/>
+                            <GridViewColumn Header="Жанр" DisplayMemberBinding="{Binding Genre}"/>
+                            <GridViewColumn Header="Оценка" DisplayMemberBinding="{Binding Rating}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
